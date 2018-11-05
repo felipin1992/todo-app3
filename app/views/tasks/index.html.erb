@@ -1,0 +1,29 @@
+
+<h1>Tasks</h1>
+
+<table>
+  <tbody>
+    <div class="container">
+      <div class="row">
+    <% @tasks.each_slice(3) do |row| %>
+      <% row.each do |task| %>
+        <div class="col">
+          <div class="card" style="margin-top: 2rem">
+            <%= image_tag task.photo %>
+          <div class="body">
+            <h4><%= task.title %></h4>
+            <%= task.date %>
+            <%= task.created_at.to_date %>
+            <br>
+
+            <%= link_to "No completada", task_activities_path(task), class: 'btn btn-danger', method: :post %>
+          </div>
+          </div>
+        </div>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+<br>
